@@ -6,6 +6,7 @@ gdown==4.2.0
 dlib==19.22.1
 scipy==1.7.3
 fastapi==0.70.1
+Jinja2
 uvicorn
 python-multipart
 Pillow
