@@ -27,8 +27,6 @@ app = FastAPI(
 #: Configure CORS
 origins = [
     "http://localhost:8080",
-    "http://127.0.0.1:8000",
-    "http://127.0.0.1:800",
 ]
 
 app.add_middleware(
@@ -38,8 +36,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-app.mount("/static", StaticFiles(directory="./dist/static"), name="static")
-templates = Jinja2Templates(directory="./dist/")
+app.mount("/static", StaticFiles(directory="./front/dist/static"), name="static")
+templates = Jinja2Templates(directory="./front/dist/")
 
 @app.get("/")
 def index(request: Request):
