@@ -4,21 +4,21 @@
       <div class="row">
         <div class="col-4">
           <img
-            src="@/../dist/img_res/img_in.jpg"
+            src="@/assets/img_res/img_in.jpg"
             alt="生成画像"
             class="img-fluid"
           />
         </div>
         <div class="col-4">
           <img
-            src="@/../dist/img_res/img_style.jpg"
+            src="@/assets/img_res/img_style.jpg"
             alt="生成画像"
             class="img-fluid"
           />
         </div>
         <div class="col-4">
           <img
-            src="@/../dist/img_res/img_out.jpg"
+            src="@/assets/img_res/img_out.jpg"
             alt="生成画像"
             class="img-fluid"
           />

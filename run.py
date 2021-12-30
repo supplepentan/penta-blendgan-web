@@ -27,4 +27,4 @@ for i, file in enumerate(tqdm(files)):
   input_image = run_alignment(file)
   input_image.resize((1024,1024))
   input_image.save(img_face)
-  subprocess.run(["python", "style_transfer_folder.py", "--size", "1024", "--ckpt", "./pretrained_models/blendgan.pt", "--psp_encoder_ckpt", "./pretrained_models/psp_encoder.pt", "--style_img_path", "./style_imgs/", "--input_img_path", img_dir, "--outdir", "./front/dist/img_res"])
+  subprocess.run(["python", "style_transfer_folder.py", "--size", "1024", "--ckpt", "./pretrained_models/blendgan.pt", "--psp_encoder_ckpt", "./pretrained_models/psp_encoder.pt", "--style_img_path", "./style_imgs/", "--input_img_path", img_dir, "--outdir", "./front/src/assets/img_res"])
