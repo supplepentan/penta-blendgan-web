@@ -1,13 +1,15 @@
 <template>
-  <div class="markermaker">
+  <div class="container">
     <div v-show="seen0">
-    <p><input type="file" v-on:change="fileSelected" /></p>
+      <Viewer />
     </div>
     <div v-show="seen1">
+      <p><input type="file" v-on:change="fileSelected" /></p>
+    </div>
+    <div v-show="seen2">
       <button v-on:click="fileUpload">画像をアップロード</button>
     </div>
-    <div v-show="seen2"><p>画像変換中</p></div>
-    <br />
+    <div v-show="seen3"><p>画像変換中</p></div>
   </div>
 </template>
 
@@ -15,9 +17,11 @@
 
 <script>
 import axios from "axios";
+import Viewer from "@/components/Viewer.vue";
 
 export default {
-  name: "markermaker",
+  components: { Viewer },
+  name: "Home",
   data: function () {
     return {
       fileInfo: "",
@@ -26,8 +30,8 @@ export default {
       // ファイル名
       fileName: "",
       requestBody: "",
-      seen0: true,
-      seen1: false,
+      seen0: false,
+      seen1: true,
       seen2: false,
       seen3: false,
     };
@@ -37,7 +41,7 @@ export default {
       this.fileInfo = event.target.files[0];
       console.log("kokokokoo");
       console.log(this.fileInfo);
-      this.seen1 = true;
+      this.seen2 = true;
     },
     async fileUpload() {
       const formData = new FormData();
@@ -45,10 +49,12 @@ export default {
       console.log(this.fileInfo);
       this.seen0 = false;
       this.seen1 = false;
-      this.seen2 = true;
+      this.seen2 = false;
+      this.seen3 = true;
       axios.post("http://127.0.0.1:8000/upload", formData).then((response) => {
-        this.seen2 = false;
-        this.seen3 = true;
+        this.seen0 = true;
+        this.seen1 = true;
+        this.seen3 = false;
         if (response.data.file_path) this.showUserImage = true;
       });
     },
