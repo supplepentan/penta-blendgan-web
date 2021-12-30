@@ -49,6 +49,11 @@ async def index(file: UploadFile = File(...)):
     contents = await file.read()
     #im = Image.open(BytesIO(contents))
     image = Image.open(BytesIO(contents)).convert('RGB')
+    image.save('input/input.jpg')
+    if not os.path.exists("./front/dist/img_res"):
+        os.mkdir("./front/dist/img_res")
+    subprocess.run(["python", "run.py"])
+
     return {"msg":"Finished"}
 if __name__ == "__main__":
     uvicorn.main(app=app)

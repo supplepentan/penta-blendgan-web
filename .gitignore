@@ -16,3 +16,4 @@ landmark.py
 
 node_modules/
 front/node_modules
+front/dist/img_res/
