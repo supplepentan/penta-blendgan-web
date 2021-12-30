@@ -15,5 +15,5 @@ style_imgs/
 landmark.py
 
 node_modules/
-front/node_modules
-front/dist/img_res/
+front/node_modules/
+front/src/assets/img_res/
